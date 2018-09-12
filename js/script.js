@@ -7,9 +7,9 @@ function getQuote() {
 }
 
 function createTweet(input) {
-    if (!Array.isArray(input)) {
-      alert('Data imported from quote database is false. Please verify it.')
-    } else {
+    if (!Array.isArray(input) && !input.length) {
+      return alert('Data imported from quote database is false. Please verify it.')
+    }
       var data = input[0];
 
       var quoteText = $(data.content).text().trim();
@@ -27,7 +27,6 @@ function createTweet(input) {
           $('.author').text("Author: " + quoteAuthor);
           $('.tweet').attr('href', tweet);
       }
-    }
 }
 
 $(document).ready(function() {
